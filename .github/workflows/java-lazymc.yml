@@ -4,11 +4,17 @@ on:
   push:
     branches: [main]
     paths:
-      - 'java/lazymc/**'
+      - 'java/lazymc/8/**'
+      - 'java/lazymc/11/**'
+      - 'java/lazymc/21/**'
+      - 'java/lazymc/25/**'
   pull_request:
     branches: [main]
     paths:
-      - 'java/lazymc/**'
+      - 'java/lazymc/8/**'
+      - 'java/lazymc/11/**'
+      - 'java/lazymc/21/**'
+      - 'java/lazymc/25/**'
   workflow_dispatch:
 
 permissions:
@@ -54,10 +60,8 @@ jobs:
       - name: Build and push
         uses: useblacksmith/build-push-action@v2
         with:
-          context: java/lazymc
+          context: java/lazymc/${{ matrix.java_version }}
           platforms: linux/amd64,linux/arm64
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: |
-            JAVA_VERSION=${{ matrix.java_version }}
