@@ -5,7 +5,7 @@ ARG JAVA_VERSION=21
 FROM alpine AS downloader
 
 ARG TARGETARCH
-ARG LAZYMC_VERSION=0.2.17
+ARG LAZYMC_VERSION=0.2.18
 
 RUN apk add --no-cache curl; \
     case "${TARGETARCH}" in \
