@@ -31,7 +31,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ghcr.io/efinaservers/shells/java
+          images: ghcr.io/efinaserver/shells/java
           tags: |
             type=raw,value=${{ matrix.java_version }}-lazymc
 
