@@ -1,7 +1,7 @@
-# syntax=docker/dockerfile:1
+# syntax=docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
 
 # ── Stage 1: download ─────────────────────────────────────────────
-FROM alpine AS downloader
+FROM alpine@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659 AS downloader
 
 ARG TARGETARCH
 ARG LAZYMC_VERSION=0.2.18
@@ -19,7 +19,7 @@ RUN apk add --no-cache curl; \
     find /tmp -maxdepth 2 -name "lazymc" -type f -exec cp {} /usr/local/bin/lazymc \;
 
 # ── Stage 2: final ────────────────────────────────────────────────
-FROM ghcr.io/pelican-eggs/yolks:java_8
+FROM ghcr.io/pelican-eggs/yolks:java_8@sha256:b93e69ef31f0fcb67ae4db1f58b8be77a67e2bca342b431260338cd5e8cf1048
 
 COPY --from=downloader --chmod=755 /usr/local/bin/lazymc /usr/local/bin/lazymc
 
