@@ -1,8 +1,8 @@
-# syntax=docker/dockerfile:1
+# syntax=docker/dockerfile:1@sha256:b6afd42430b15f2d2a4c5a02b919e98a525b785b1aaff16747d2f623364e39b6
 ARG JAVA_VERSION=21
 
 # ── Stage 1: download ─────────────────────────────────────────────
-FROM alpine AS downloader
+FROM alpine@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659 AS downloader
 
 ARG TARGETARCH
 ARG LAZYMC_VERSION=0.2.18
