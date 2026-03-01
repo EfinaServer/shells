@@ -33,6 +33,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Get commit timestamp
+        id: git-timestamp
+        run: echo "value=$(git log -1 --format=%cI)" >> $GITHUB_OUTPUT
+
       - name: Docker metadata
         id: meta
         uses: docker/metadata-action@v5
@@ -40,6 +44,8 @@ jobs:
           images: ghcr.io/efinaserver/shells/java
           tags: |
             type=raw,value=${{ matrix.java_version }}-lazymc
+          labels: |
+            org.opencontainers.image.created=${{ steps.git-timestamp.outputs.value }}
 
       - name: Login to GHCR
         if: github.event_name != 'pull_request'

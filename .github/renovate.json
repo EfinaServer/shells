@@ -7,5 +7,21 @@
   ],
   "automerge": true,
   "rebaseWhen": "conflicted",
-  "platformAutomerge": true
+  "platformAutomerge": true,
+  "ignorePaths": [
+    "java/lazymc/source/Dockerfile"
+  ],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^java/lazymc/\\d+/Dockerfile$"],
+      "matchStrings": [
+        "ARG LAZYMC_VERSION=(?<currentValue>[\\d.]+)"
+      ],
+      "depNameTemplate": "EfinaServer/lazymc",
+      "datasourceTemplate": "github-releases",
+      "extractVersion": "^v(?<version>.*)$",
+      "versioningTemplate": "semver"
+    }
+  ]
 }
