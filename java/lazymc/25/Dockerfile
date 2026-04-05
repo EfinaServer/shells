@@ -4,7 +4,7 @@
 FROM alpine@sha256:25109184c71bdad752c8312a8623239686a9a2071e8825f20acb8f2198c3f659 AS downloader
 
 ARG TARGETARCH
-ARG LAZYMC_VERSION=0.2.20
+ARG LAZYMC_VERSION=0.2.21
 
 RUN apk add --no-cache curl; \
     case "${TARGETARCH}" in \
