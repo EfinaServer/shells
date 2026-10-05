@@ -19,7 +19,7 @@ RUN apk add --no-cache curl; \
     find /tmp -maxdepth 2 -name "lazymc" -type f -exec cp {} /usr/local/bin/lazymc \;
 
 # ── Stage 2: final ────────────────────────────────────────────────
-FROM ghcr.io/pelican-eggs/yolks:java_11@sha256:b2ec49a03a06b9f03b66578d809de08ea0f488e5032870c9e452d2f3cec3ac53
+FROM ghcr.io/pelican-eggs/yolks:java_11@sha256:126393a649bc642d79194155de7fd38f72589e10815cd8ae7412b3cff1417809
 
 COPY --from=downloader --chmod=755 /usr/local/bin/lazymc /usr/local/bin/lazymc
 
