@@ -2,7 +2,7 @@
 ARG JAVA_VERSION=21
 
 # ── Stage 1: download ─────────────────────────────────────────────
-FROM alpine@sha256:be2656061b536c1883c4034790e21d0a09c5aaaf51968b89368a3c0371ea2c9a AS downloader
+FROM alpine@sha256:3f4d6b32e26703c6082839234f43769d5046b3ac7c910033911d1e71d8cd630a AS downloader
 
 ARG TARGETARCH
 ARG LAZYMC_VERSION=0.2.21
